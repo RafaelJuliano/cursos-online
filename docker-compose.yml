@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres
+    container_name: database
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: laravel_docker
+      POSTGRES_INITDB_ARGS: '--auth-host=md5'
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+  php-apache:
+    container_name: php-apache
+    build:
+      context: ./php
+    ports:
+        - '8080:8181'
+    volumes:
+      - ./src:/var/www/laravel_docker
+      - ./apache:/etc/apache2/sites-enabled
+    depends_on:
+      - database
