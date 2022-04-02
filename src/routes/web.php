@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\CourseController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,3 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('cursos', 'CourseController@index')->name('cursos.index');

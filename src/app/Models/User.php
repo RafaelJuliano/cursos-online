@@ -30,4 +30,30 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function courses()
+    {
+        return $this->hasMany('App\Models\Course\Course');
+    }
+
+    public function courseModules()
+    {
+        return $this->hasMany('App\Models\Course\CourseModule');
+    }
+
+    public function moduleContents()
+    {
+        return $this->hasMany('App\Models\Course\ModuleContent');
+    }
+
+    public function subscriptions()
+    {
+        return $this->belongsToMany('App\Models\Course\Course', 'subscriptions');
+    }
+
+    public function attendedClasses()
+    {
+        return $this->belongsToMany('App\Models\Course\ModuleContent', 'attended_classes');
+    }
+
 }
