@@ -193,8 +193,169 @@ class DatabaseSeeder extends Seeder
                     ]
                 ]
 
-            ]
-
+                            ],
+            [
+                'reference' => 'PHP-001',
+                'title' => 'PHP',
+                'description' => 'PHP is a popular general-purpose scripting language that is especially suited to web development.',
+                'modules' => [
+                    [
+                        'title' => 'Introduction',
+                        'description' => 'Introduction to the PHP framework',
+                        'contents' => [
+                            [
+                                'title' => 'Configuring the PHP Environment',
+                                'description' => 'Configuring the PHP environment'
+                            ],
+                            [
+                                'title' => 'Installing PHP',
+                                'description' => 'Installing PHP'
+                            ]
+                        ]
+                    ],
+                    [
+                        'title' => 'Installation',
+                        'description' => 'Installation of the PHP framework',
+                        'contents' => [
+                            [
+                                'title' => 'Installing PHP',
+                                'description' => 'Installing PHP'
+                            ],
+                            [
+                                'title' => 'Routing',
+                                'description' => 'Routing'
+                            ]
+                        ]
+                    ]
+                ]
+                            ],
+            [
+                'reference' => 'JS-001',
+                'title' => 'JavaScript',
+                'description' => 'JavaScript is a high-level, dynamic, untyped, and interpreted programming language.',
+                'modules' => [
+                    [
+                        'title' => 'Introduction',
+                        'description' => 'Introduction to the JavaScript framework',
+                        'contents' => [
+                            [
+                                'title' => 'Configuring the JavaScript Environment',
+                                'description' => 'Configuring the JavaScript environment'
+                            ],
+                            [
+                                'title' => 'Installing JavaScript',
+                                'description' => 'Installing JavaScript'
+                            ]
+                        ]
+                    ],
+                    [
+                        'title' => 'Installation',
+                        'description' => 'Installation of the JavaScript framework',
+                        'contents' => [
+                            [
+                                'title' => 'Installing JavaScript',
+                                'description' => 'Installing JavaScript'
+                            ],
+                            [
+                                'title' => 'Routing',
+                                'description' => 'Routing'
+                            ]
+                        ]
+                    ]
+                ]
+                            ],
+            [
+                'reference' => 'VB-001',
+                'title' => 'Visual Basic',
+                'description' => 'Visual Basic is a general-purpose, object-oriented programming language. It was developed by Microsoft within its .NET initiative and later approved as a standard by Ecma (ECMA-334) and ISO (ISO/IEC 23270:2006).',
+                'modules' => [
+                    [
+                        'title' => 'Introduction',
+                        'description' => 'Introduction to the Visual Basic framework',
+                        'contents' => [
+                            [
+                                'title' => 'Configuring the Visual Basic Environment',
+                                'description' => 'Configuring the Visual Basic environment'
+                            ],
+                            [
+                                'title' => 'Installing Visual Basic',
+                                'description' => 'Installing Visual Basic'
+                            ]
+                        ]
+                    ],
+                    [
+                        'title' => 'Installation',
+                        'description' => 'Installation of the Visual Basic framework',
+                        'contents' => [
+                            [
+                                'title' => 'Installing Visual Basic',
+                                'description' => 'Installing Visual Basic'
+                            ],
+                            [
+                                'title' => 'Routing',
+                                'description' => 'Routing'
+                            ]
+                        ]
+                    ]
+                ]
+                            ],
+            [
+                'reference' => 'VB-002',
+                'title' => 'Visual Basic',
+                'description' => 'Visual Basic is a general-purpose, object-oriented programming language. It was developed by Microsoft within its .NET initiative and later approved as a standard by Ecma (ECMA-334) and ISO (ISO/IEC 23270:2006).',
+                'modules' => [
+                    [
+                        'title' => 'Introduction',
+                        'description' => 'Introduction to the Visual Basic framework',
+                        'contents' => [
+                            [
+                                'title' => 'Configuring the Visual Basic Environment',
+                                'description' => 'Configuring the Visual Basic environment'
+                            ],
+                            [
+                                'title' => 'Installing Visual Basic',
+                                'description' => 'Installing Visual Basic'
+                            ]
+                        ]
+                    ],
+                    [
+                        'title' => 'Installation',
+                        'description' => 'Installation of the Visual Basic framework',
+                        'contents' => [
+                            [
+                                'title' => 'Installing Visual Basic',
+                                'description' => 'Installing Visual Basic'
+                            ],
+                            [
+                                'title' => 'Routing',
+                                'description' => 'Routing'
+                            ]
+                        ]
+                    ]
+                ]
+                            ],
+            [
+                'reference' => 'VB-003',
+                'title' => 'Visual Basic',
+                'description' => 'Visual Basic is a general-purpose, object-oriented programming language. It was developed by Microsoft within its .NET initiative and later approved as a standard by Ecma (ECMA-334) and ISO (ISO/IEC 23270:2006).',
+                'modules' => [
+                    [
+                        'title' => 'Introduction',
+                        'description' => 'Introduction to the Visual Basic framework',
+                        'contents' => [
+                            [
+                                'title' => 'Configuring the Visual Basic Environment',
+                                'description' => 'Configuring the Visual Basic environment'
+                            ],
+                            [
+                                'title' => 'Installing Visual Basic',
+                                'description' => 'Installing Visual
+                                Basic'
+                            ]
+                        ]
+                    ]
+                ]
+                            ]
 
         ]; 
         
