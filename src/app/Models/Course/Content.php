@@ -4,7 +4,7 @@ namespace App\Models\Course;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ModuleContent extends Model
+class Content extends Model
 {
     protected $fillable = [
         'module_id',
@@ -16,7 +16,7 @@ class ModuleContent extends Model
 
     public function module()
     {
-        return $this->belongsTo('App\Models\Course\CourseModule');
+        return $this->belongsTo('App\Models\Course\Module');
     }
 
     public function createdBy()

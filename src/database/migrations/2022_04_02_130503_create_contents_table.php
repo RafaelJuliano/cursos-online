@@ -1,12 +1,10 @@
 <?php
 
-use App\Models\User;
-use App\Models\Course\Course;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCourseModulesTable extends Migration
+class CreateContentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,17 +13,17 @@ class CreateCourseModulesTable extends Migration
      */
     public function up()
     {
-        Schema::create('course_modules', function (Blueprint $table) {
+        Schema::create('contents', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('course_id')->unsigned(); 
+            $table->integer('module_id')->unsigned(); 
             $table->string('title');
             $table->string('description');
             $table->integer('created_by')->unsigned(); 
             $table->timestamps();
         });
 
-        Schema::table('course_modules', function (Blueprint $table) {
-            $table->foreign('course_id')->references('id')->on('courses');
+        Schema::table('contents', function (Blueprint $table) {
+            $table->foreign('module_id')->references('id')->on('modules');
             $table->foreign('created_by')->references('id')->on('users');
         });
     }
@@ -37,6 +35,6 @@ class CreateCourseModulesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('course_modules');
+        Schema::dropIfExists('module_contents');
     }
 }

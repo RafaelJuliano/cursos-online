@@ -4,7 +4,7 @@ namespace App\Models\Course;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CourseModule extends Model
+class Module extends Model
 {
     protected $fillable = [
         'course_id',
@@ -21,7 +21,7 @@ class CourseModule extends Model
 
     public function contents()
     {
-        return $this->hasMany('App\Models\Course\ModuleContent');
+        return $this->hasMany('App\Models\Course\Content');
     }
 
     public function createdBy()

@@ -20,7 +20,7 @@ class Course extends Model
 
     public function modules()
     {
-        return $this->hasMany('App\Models\Course\CourseModule');
+        return $this->hasMany('App\Models\Course\Module');
     }
 
     public function subscriptions()

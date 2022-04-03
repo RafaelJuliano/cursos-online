@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use App\Models\Course\Course;
+use App\Models\Course\Module;
+use App\Models\Course\Content;
 
 class DatabaseSeeder extends Seeder
 {
@@ -10,13 +14,224 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        DB::table('users')->insert([
-            'name' => 'Admin',
-            'email' => 'admin@mail.com.br',
-            'password' => bcrypt('admin'),
-            'status' => 'active',
-            'role' => 'admin'
-        ]);
+    {        
+
+        $users = [
+            [
+                'name' => 'Admin',
+                'email' => 'admin@mail.com.br',
+                'password' => bcrypt('admin'),
+                'status' => 'active',
+                'role' => 'admin'
+            ],
+            [
+                'name' => 'Student',
+                'email' => 'student@mail.com.br',
+                'password' => bcrypt('student'),
+                'status' => 'active',
+                'role' => 'student'
+            ],
+            [
+                'name' => 'Teacher',
+                'email' => 'teacher@mail.com.br',
+                'password' => bcrypt('teacher'),
+                'status' => 'active',
+                'role' => 'teacher'
+            ],
+            [
+                'name' => 'Guest',
+                'email' => 'guest@mail.com.br',
+                'password' => bcrypt('guest'),
+                'status' => 'active',
+                'role' => 'student'
+            ],
+            [
+                'name' => 'foo',
+                'email' => 'foo@mail.com.br',
+                'password' => bcrypt('foo'),
+                'status' => 'active',
+                'role' => 'student'
+            ]            
+        ];
+
+        foreach($users as $user)
+        {
+            $newUser = new User;
+            $newUser->name = $user['name'];
+            $newUser->email = $user['email'];
+            $newUser->password = $user['password'];
+            $newUser->status = $user['status'];
+            $newUser->role = $user['role'];
+            $newUser->save();
+        }
+
+        $courses = [
+            [
+                'reference' => 'LRV-001',
+                'title' => 'Laravel',
+                'description' => 'Laravel is a free, open-source PHP web framework, created by Taylor Otwell and intended for the development of web applications following the model–view–controller (MVC) architectural pattern.',
+                'modules' => [
+                    [
+                        'title' => 'Introduction',
+                        'description' => 'Introduction to the Laravel framework',
+                        'contents' => [
+                            [
+                                'title' => 'Configuring the Laravel Environment',
+                                'description' => 'Configuring the Laravel environment'
+                            ]
+                        ]
+                    ],
+                    [
+                        'title' => 'Installation',
+                        'description' => 'Installation of the Laravel framework',
+                        'contents' => [
+                            [
+                                'title' => 'Installing Laravel',
+                                'description' => 'Installing Laravel'
+                            ]
+                        ]
+                    ],
+                    [
+                        'title' => 'Routing',
+                        'description' => 'Routing of the Laravel framework',
+                        'contents' => [
+                            [
+                                'title' => 'Routing',
+                                'description' => 'Routing'
+                            ]
+                        ]
+                    ],
+                    [
+                        'title' => 'Controllers',
+                        'description' => 'Controllers of the Laravel framework',
+                        'contents' => []
+                    ],
+                    [
+                        'title' => 'Models',
+                        'description' => 'Models of the Laravel framework',
+                        'contents' => []
+                    ]
+                ]
+            ],
+            [
+                'reference' => 'C01',
+                'title' => 'C#',
+                'description' => 'C# is a general-purpose, object-oriented programming language. It was developed by Microsoft within its .NET initiative and later approved as a standard by Ecma (ECMA-334) and ISO (ISO/IEC 23270:2006).',
+                'modules' => [
+                    [
+                        'title' => 'Introduction',
+                        'description' => 'Introduction to the C# framework',
+                        'contents' => [
+                            [
+                                'title' => 'Configuring the C# Environment',
+                                'description' => 'Configuring the C# environment'
+                            ],
+                            [
+                                'title' => 'Installing C#',
+                                'description' => 'Installing C#'
+                            ]
+                        ]
+                    ],
+                    [
+                        'title' => 'Installation',
+                        'description' => 'Installation of the C# framework',
+                        'contents' => [
+                            [
+                                'title' => 'Installing C#',
+                                'description' => 'Installing C#'
+                            ],
+                            [
+                                'title' => 'Routing',
+                                'description' => 'Routing'
+                            ]
+                        ]
+                    ],
+                    [
+                        'title' => 'Routing',
+                        'description' => 'Routing of the C# framework',
+                        'contents' => [
+                            [
+                                'title' => 'Routing',
+                                'description' => 'Routing'
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            [
+                'reference' => 'JV-001',
+                'title' => 'Java',
+                'description' => 'Java is a general-purpose computer programming language that is concurrent, class-based, object-oriented, and specifically designed to have as few implementation dependencies as possible.',
+                'modules' => [
+                    [
+                        'title' => 'Introduction',
+                        'description' => 'Introduction to the Java framework',
+                        'contents' => [
+                            [
+                                'title' => 'Configuring the Java Environment',
+                                'description' => 'Configuring the Java environment'
+                            ],
+                            [
+                                'title' => 'Installing Java',
+                                'description' => 'Installing Java'
+                            ]
+                        ]
+                    ],
+                    [
+                        'title' => 'Installation',
+                        'description' => 'Installation of the Java framework',
+                        'contents' => [
+                            [
+                                'title' => 'Installing Java',
+                                'description' => 'Installing Java'
+                            ],
+                            [
+                                'title' => 'Routing',
+                                'description' => 'Routing'
+                            ]
+                        ]
+                    ]
+                ]
+
+            ]
+
+
+        ]; 
+        
+        foreach($courses as $course)
+        {
+            $newCourse = new Course;
+            $newCourse->reference = $course['reference'];
+            $newCourse->title = $course['title'];
+            $newCourse->description = $course['description'];
+            $newCourse->created_by = 1;
+
+            $newCourse = $newCourse->save();
+            $courseId = Course::where('reference', $course['reference'])->first()->id;            
+            $modules = $course['modules'];
+            
+            foreach($modules as $module)
+            {
+                $newModule = new Module;
+                $newModule->course_id = $courseId;            
+                $newModule->title = $module['title'];
+                $newModule->description = $module['description'];
+                $newModule->created_by = 1;
+                $newModule = $newModule->save();
+                $moduleId = Module::where('title', $module['title'])->where('course_id', $courseId)->first()->id;
+                $contents = $module['contents'];
+                
+                foreach($contents as $content)
+                {
+                    $newContent = new Content;
+                    $newContent->module_id = $moduleId;                
+                    $newContent->title = $content['title'];
+                    $newContent->description = $content['description'];
+                    $newContent->created_by = 1;
+                    $newContent = $newContent->save();
+                }
+            }
+        }                 
+            
     }
 }

@@ -1,0 +1,23 @@
+SELECT
+    a.id,
+    a.reference,
+    (a.title) as course,
+    count(b.title) as modules,
+    sum(c.contents) as contents
+FROM courses as a
+LEFT JOIN
+    (SELECT
+        id,
+        course_id,
+        title
+    FROM course_modules) as b
+    ON (a.id = b.course_id)
+LEFT JOIN
+    (SELECT
+        module_id,
+        count(*) as contents
+    FROM module_contents
+    GROUP BY module_id) as c
+    ON (b.id = c.module_id)
+GROUP BY a.id;
+

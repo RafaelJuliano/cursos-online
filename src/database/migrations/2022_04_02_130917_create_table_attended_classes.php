@@ -22,7 +22,7 @@ class CreateTableAttendedClasses extends Migration
         
         Schema::table('attended_classes', function (Blueprint $table) {
             $table->foreign('created_by')->references('id')->on('users');
-            $table->foreign('content_id')->references('id')->on('module_contents');
+            $table->foreign('content_id')->references('id')->on('contents');
         });
     }
 

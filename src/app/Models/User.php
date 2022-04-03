@@ -36,9 +36,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Course\Course');
     }
 
-    public function courseModules()
+    public function Modules()
     {
-        return $this->hasMany('App\Models\Course\CourseModule');
+        return $this->hasMany('App\Models\Course\Module');
     }
 
     public function moduleContents()

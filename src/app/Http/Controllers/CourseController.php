@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Course\Course;
+use App\Models\Course\Module;
+use App\Models\Course\Content;
 
 class CourseController extends Controller
 {
@@ -13,8 +17,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $data = "test";
-        return view('test', compact('data'));
+        $courses = Course::all();
+        return view('course.index', compact('courses'));
     }
 
     /**
@@ -24,7 +28,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        return view('course.create');        
     }
 
     /**
@@ -35,7 +39,48 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'reference' => 'required|unique:courses',
+            'description' => 'required',
+            'modules' => 'required'
+        ]);        
+
+        $course = $request->all();
+
+        $newCourse = new Course;
+        $newCourse->reference = $course['reference'];
+        $newCourse->title = $course['title'];
+        $newCourse->description = $course['description'];
+        $newCourse->created_by = Auth::user()->id;;
+
+        $newCourse = $newCourse->save();
+        $courseId = Course::where('reference', $course['reference'])->first()->id;            
+        $modules = $course['modules'];
+        
+        foreach($modules as $module)
+        {
+            $newModule = new Module;
+            $newModule->course_id = $courseId;            
+            $newModule->title = $module['title'];
+            $newModule->description = $module['description'];
+            $newModule->created_by = Auth::user()->id;
+            $newModule = $newModule->save();
+            $moduleId = Module::where('title', $module['title'])->where('course_id', $courseId)->first()->id;
+            $contents = $module['contents'];
+                
+                foreach($contents as $content)
+                {
+                $newContent = new Content;
+                $newContent->module_id = $moduleId;                
+                $newContent->title = $content['title'];
+                $newContent->description = $content['content'];
+                $newContent->created_by = Auth::user()->id;
+                $newContent = $newContent->save();
+            }
+        }
+
+        return redirect(route('cursos.index'));
     }
 
     /**
@@ -46,7 +91,8 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        //
+        $course = Course::find($id);
+        return view('course.show', compact('course'));
     }
 
     /**
