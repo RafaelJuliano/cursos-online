@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
                         'contents' => [
                             [
                                 'title' => 'Configuring the Laravel Environment',
-                                'description' => 'Configuring the Laravel environment'
+                                'content' => 'Configuring the Laravel environment'
                             ]
                         ]
                     ],
@@ -87,7 +87,7 @@ class DatabaseSeeder extends Seeder
                         'contents' => [
                             [
                                 'title' => 'Installing Laravel',
-                                'description' => 'Installing Laravel'
+                                'content' => 'Installing Laravel'
                             ]
                         ]
                     ],
@@ -97,7 +97,7 @@ class DatabaseSeeder extends Seeder
                         'contents' => [
                             [
                                 'title' => 'Routing',
-                                'description' => 'Routing'
+                                'content' => 'Routing'
                             ]
                         ]
                     ],
@@ -124,11 +124,11 @@ class DatabaseSeeder extends Seeder
                         'contents' => [
                             [
                                 'title' => 'Configuring the C# Environment',
-                                'description' => 'Configuring the C# environment'
+                                'content' => 'Configuring the C# environment'
                             ],
                             [
                                 'title' => 'Installing C#',
-                                'description' => 'Installing C#'
+                                'content' => 'Installing C#'
                             ]
                         ]
                     ],
@@ -138,11 +138,11 @@ class DatabaseSeeder extends Seeder
                         'contents' => [
                             [
                                 'title' => 'Installing C#',
-                                'description' => 'Installing C#'
+                                'content' => 'Installing C#'
                             ],
                             [
                                 'title' => 'Routing',
-                                'description' => 'Routing'
+                                'content' => 'Routing'
                             ]
                         ]
                     ],
@@ -152,7 +152,7 @@ class DatabaseSeeder extends Seeder
                         'contents' => [
                             [
                                 'title' => 'Routing',
-                                'description' => 'Routing'
+                                'content' => 'Routing'
                             ]
                         ]
                     ]
@@ -169,11 +169,11 @@ class DatabaseSeeder extends Seeder
                         'contents' => [
                             [
                                 'title' => 'Configuring the Java Environment',
-                                'description' => 'Configuring the Java environment'
+                                'content' => 'Configuring the Java environment'
                             ],
                             [
                                 'title' => 'Installing Java',
-                                'description' => 'Installing Java'
+                                'content' => 'Installing Java'
                             ]
                         ]
                     ],
@@ -183,11 +183,11 @@ class DatabaseSeeder extends Seeder
                         'contents' => [
                             [
                                 'title' => 'Installing Java',
-                                'description' => 'Installing Java'
+                                'content' => 'Installing Java'
                             ],
                             [
                                 'title' => 'Routing',
-                                'description' => 'Routing'
+                                'content' => 'Routing'
                             ]
                         ]
                     ]
@@ -205,11 +205,11 @@ class DatabaseSeeder extends Seeder
                         'contents' => [
                             [
                                 'title' => 'Configuring the PHP Environment',
-                                'description' => 'Configuring the PHP environment'
+                                'content' => 'Configuring the PHP environment'
                             ],
                             [
                                 'title' => 'Installing PHP',
-                                'description' => 'Installing PHP'
+                                'content' => 'Installing PHP'
                             ]
                         ]
                     ],
@@ -219,11 +219,11 @@ class DatabaseSeeder extends Seeder
                         'contents' => [
                             [
                                 'title' => 'Installing PHP',
-                                'description' => 'Installing PHP'
+                                'content' => 'Installing PHP'
                             ],
                             [
                                 'title' => 'Routing',
-                                'description' => 'Routing'
+                                'content' => 'Routing'
                             ]
                         ]
                     ]
@@ -240,11 +240,11 @@ class DatabaseSeeder extends Seeder
                         'contents' => [
                             [
                                 'title' => 'Configuring the JavaScript Environment',
-                                'description' => 'Configuring the JavaScript environment'
+                                'content' => 'Configuring the JavaScript environment'
                             ],
                             [
                                 'title' => 'Installing JavaScript',
-                                'description' => 'Installing JavaScript'
+                                'content' => 'Installing JavaScript'
                             ]
                         ]
                     ],
@@ -254,11 +254,11 @@ class DatabaseSeeder extends Seeder
                         'contents' => [
                             [
                                 'title' => 'Installing JavaScript',
-                                'description' => 'Installing JavaScript'
+                                'content' => 'Installing JavaScript'
                             ],
                             [
                                 'title' => 'Routing',
-                                'description' => 'Routing'
+                                'content' => 'Routing'
                             ]
                         ]
                     ]
@@ -275,11 +275,11 @@ class DatabaseSeeder extends Seeder
                         'contents' => [
                             [
                                 'title' => 'Configuring the Visual Basic Environment',
-                                'description' => 'Configuring the Visual Basic environment'
+                                'content' => 'Configuring the Visual Basic environment'
                             ],
                             [
                                 'title' => 'Installing Visual Basic',
-                                'description' => 'Installing Visual Basic'
+                                'content' => 'Installing Visual Basic'
                             ]
                         ]
                     ],
@@ -289,11 +289,11 @@ class DatabaseSeeder extends Seeder
                         'contents' => [
                             [
                                 'title' => 'Installing Visual Basic',
-                                'description' => 'Installing Visual Basic'
+                                'content' => 'Installing Visual Basic'
                             ],
                             [
                                 'title' => 'Routing',
-                                'description' => 'Routing'
+                                'content' => 'Routing'
                             ]
                         ]
                     ]
@@ -310,11 +310,11 @@ class DatabaseSeeder extends Seeder
                         'contents' => [
                             [
                                 'title' => 'Configuring the Visual Basic Environment',
-                                'description' => 'Configuring the Visual Basic environment'
+                                'content' => 'Configuring the Visual Basic environment'
                             ],
                             [
                                 'title' => 'Installing Visual Basic',
-                                'description' => 'Installing Visual Basic'
+                                'content' => 'Installing Visual Basic'
                             ]
                         ]
                     ],
@@ -324,11 +324,11 @@ class DatabaseSeeder extends Seeder
                         'contents' => [
                             [
                                 'title' => 'Installing Visual Basic',
-                                'description' => 'Installing Visual Basic'
+                                'content' => 'Installing Visual Basic'
                             ],
                             [
                                 'title' => 'Routing',
-                                'description' => 'Routing'
+                                'content' => 'Routing'
                             ]
                         ]
                     ]
@@ -345,11 +345,11 @@ class DatabaseSeeder extends Seeder
                         'contents' => [
                             [
                                 'title' => 'Configuring the Visual Basic Environment',
-                                'description' => 'Configuring the Visual Basic environment'
+                                'content' => 'Configuring the Visual Basic environment'
                             ],
                             [
                                 'title' => 'Installing Visual Basic',
-                                'description' => 'Installing Visual
+                                'content' => 'Installing Visual
                                 Basic'
                             ]
                         ]
@@ -387,7 +387,7 @@ class DatabaseSeeder extends Seeder
                     $newContent = new Content;
                     $newContent->module_id = $moduleId;                
                     $newContent->title = $content['title'];
-                    $newContent->description = $content['description'];
+                    $newContent->content = $content['content'];
                     $newContent->created_by = 1;
                     $newContent = $newContent->save();
                 }

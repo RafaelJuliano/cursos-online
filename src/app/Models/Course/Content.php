@@ -10,7 +10,7 @@ class Content extends Model
         'module_id',
         'reference',
         'title',
-        'description',
+        'content',
         'created_by'
     ];
 

@@ -23,8 +23,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('cursos', 'CourseController@index')->name('cursos.index');
-Route::get('cursos/show/{id}', 'CourseController@show')->name('cursos.show');
-Route::get('cursos/create', 'CourseController@create')->name('cursos.create');
+Route::get('cursos/detalhes/{id}', 'CourseController@show')->name('cursos.show');
+Route::get('cursos/cadastrar', 'CourseController@create')->name('cursos.create');
 Route::post('cursos/store', 'CourseController@store')->name('cursos.store');
 
 Route::post('post/teste', function(Request $request) {

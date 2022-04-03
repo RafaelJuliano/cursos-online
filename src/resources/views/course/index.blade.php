@@ -10,7 +10,7 @@
                 <h5 class="card-title">{{ $course->title }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Criado por: {{ $course->createdBy->name }}</h6>
                 <p class="card-text">{{ $course->description }}</p>
-                <a href="#" class="card-link mt-auto">Detalhes do Curso</a>            
+                <a href="{{ route('cursos.show', $course->id) }}" class="card-link mt-auto">Detalhes do Curso</a>            
             </div>
         </div>
     @endforeach

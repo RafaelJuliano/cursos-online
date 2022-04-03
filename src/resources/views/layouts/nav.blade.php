@@ -11,16 +11,16 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         
-                        <li class="nav-item">
+                        <li class="nav-item border-right">
                             <a class="nav-link" href="{{ route("cursos.index") }}">Cursos</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">Conteúdo</a>
+                        <li class="nav-item border-right">
+                            <a class="nav-link" href="">Gerenciar Conteúdo</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item border-right">
                             <a class="nav-link" href="">Relatórios</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item border-right">
                             <a class="nav-link" href="">Usuários</a>
                         </li>
                     </ul>

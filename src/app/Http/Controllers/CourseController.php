@@ -74,7 +74,7 @@ class CourseController extends Controller
                 $newContent = new Content;
                 $newContent->module_id = $moduleId;                
                 $newContent->title = $content['title'];
-                $newContent->description = $content['content'];
+                $newContent->content = $content['content'];
                 $newContent->created_by = Auth::user()->id;
                 $newContent = $newContent->save();
             }

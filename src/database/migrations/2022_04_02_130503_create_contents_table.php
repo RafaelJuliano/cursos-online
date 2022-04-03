@@ -17,7 +17,7 @@ class CreateContentsTable extends Migration
             $table->increments('id');
             $table->integer('module_id')->unsigned(); 
             $table->string('title');
-            $table->string('description');
+            $table->text('content');
             $table->integer('created_by')->unsigned(); 
             $table->timestamps();
         });
