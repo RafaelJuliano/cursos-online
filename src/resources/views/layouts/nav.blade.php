@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Gerenciador de Cursos') }}
+                    {{ config('app.name', 'Cursos Online') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -14,15 +14,21 @@
                         <li class="nav-item border-right">
                             <a class="nav-link" href="{{ route("cursos.index") }}">Cursos</a>
                         </li>
-                        <li class="nav-item border-right">
-                            <a class="nav-link" href="">Gerenciar Conteúdo</a>
-                        </li>
+
+                        @can('create', \App\Models\User::class)
+                            <li class="nav-item border-right">
+                                <a class="nav-link" href="{{ route("cursos.create") }}">Gerenciar Conteúdo</a>
+                            </li>
+                        @endcan
+
+                        @can('manage', \App\Models\User::class)
                         <li class="nav-item border-right">
                             <a class="nav-link" href="">Relatórios</a>
                         </li>
                         <li class="nav-item border-right">
                             <a class="nav-link" href="">Usuários</a>
                         </li>
+                        @endcan
                     </ul>
 
                     <!-- Right Side Of Navbar -->

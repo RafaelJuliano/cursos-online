@@ -13,14 +13,15 @@
 
 use App\Http\Controllers\CourseController;
 use Illuminate\Http\Request;
+use App\Models\Course\Course;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route('home'));
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'CourseController@index')->name('home');
 
 Route::get('cursos', 'CourseController@index')->name('cursos.index');
 Route::get('cursos/detalhes/{id}', 'CourseController@show')->name('cursos.show');

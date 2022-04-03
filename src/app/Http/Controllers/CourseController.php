@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Course\Course;
 use App\Models\Course\Module;
 use App\Models\Course\Content;
+use App\Models\User;
 
 class CourseController extends Controller
 {
@@ -26,8 +27,9 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(Request $request)
+    {        
+        $this->authorize('create', User::class);
         return view('course.create');        
     }
 
@@ -39,6 +41,7 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', User::class);
         $request->validate([
             'title' => 'required',
             'reference' => 'required|unique:courses',
@@ -103,7 +106,8 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $course = Course::find($id);
+        $this->authorize('update', User::class, $course);
     }
 
     /**
@@ -115,7 +119,8 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $course = Course::find($id);
+        $this->authorize('update', User::class, $course);
     }
 
     /**
@@ -126,6 +131,7 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $course = Course::find($id);
+        $this->authorize('update', User::class, $course);
     }
 }

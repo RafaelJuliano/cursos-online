@@ -56,4 +56,16 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Course\ModuleContent', 'attended_classes');
     }
 
+    public function isAdmin()
+    {
+        return $this->role == 'admin';
+    }
+
+    public function isTeacher()
+    {
+        return $this->role == 'teacher';
+    }
+
+
+
 }

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Gerenciador de Cursos') }}</title>
+    <title>{{ config('app.name', 'Cursos Online') }}</title>
 
     <!-- Scripts -->
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
