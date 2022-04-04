@@ -26,7 +26,7 @@
                             <a class="nav-link" href="">Relatórios</a>
                         </li>
                         <li class="nav-item border-right">
-                            <a class="nav-link" href="">Usuários</a>
+                            <a class="nav-link" href="{{ route("usuarios.index") }}">Usuários</a>
                         </li>
                         @endcan
                     </ul>

@@ -40,6 +40,10 @@ Route::delete('cursos/delete/{id}', 'CourseController@destroy')->name('cursos.de
 Route::delete('module/{id}/delete', 'ModuleController@destroy')->name('module.destroy')->middleware('auth');
 Route::delete('content/{id}/delete', 'ContentController@destroy')->name('content.destroy')->middleware('auth');
 
+Route::get('usuarios', 'UserController@index')->name('usuarios.index')->middleware('auth');
+Route::get('usuarios/detalhes/{id}', 'UserController@show')->name('usuarios.show')->middleware('auth');
+Route::put('usuarios/{id}/update', 'UserController@update')->name('usuarios.update')->middleware('auth');
+
 Route::post('post/teste', function(Request $request) {
     $data = $request->all();
     return view('test', compact('data'));
