@@ -86,7 +86,7 @@ function removeContent(moduleIndex, contentIndex){
 
 
 function removeModule(index){
-    var module = document.getElementById("module-id-" + index);
+    var module = document.getElementById("module-id-" + index);    
     module.remove();
 }
 
@@ -102,5 +102,6 @@ function changeContentTitle(moduleIndex, contentIndex){
     console.log(contentTitle);
     content.innerHTML = "Conteúdo: " + contentTitle;
 }
+
 
 

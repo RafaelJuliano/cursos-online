@@ -17,7 +17,7 @@
 
                         @can('create', \App\Models\User::class)
                             <li class="nav-item border-right">
-                                <a class="nav-link" href="{{ route("cursos.create") }}">Gerenciar Conteúdo</a>
+                                <a class="nav-link" href="{{ route("cursos.manage") }}">Gerenciar Conteúdo</a>
                             </li>
                         @endcan
 

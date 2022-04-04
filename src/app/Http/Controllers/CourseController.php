@@ -23,6 +23,24 @@ class CourseController extends Controller
     }
 
     /**
+     * Shows the page with the list of user-created courses and allows the creation of new courses.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function manageCourses()
+    {
+        if (Auth::user()->role == 'admin') {
+            $this->authorize('manage', User::class);
+            $courses = Course::all();
+            return view('course.manage', compact('courses'));
+        } else {
+            $this->authorize('create', User::class);
+            $courses = Course::where('created_by', Auth::user()->id)->get();
+            return view('course.manage', compact('courses'));
+        }     
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -83,7 +101,7 @@ class CourseController extends Controller
             }
         }
 
-        return redirect(route('cursos.index'));
+        return redirect(route('cursos.manage'));
     }
 
     /**
@@ -107,7 +125,8 @@ class CourseController extends Controller
     public function edit($id)
     {
         $course = Course::find($id);
-        $this->authorize('update', User::class, $course);
+        $this->authorize('update', [User::class, $course]);
+        return view('course.edit', compact('course'));
     }
 
     /**
@@ -119,8 +138,78 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // $data = $request->all();
+        // return view('test', compact('data'));
+
         $course = Course::find($id);
-        $this->authorize('update', User::class, $course);
+        $this->authorize('update', [User::class, $course]);
+
+        $request->validate([
+            'title' => 'required',
+            'reference' => 'required|unique:courses,reference,'.$id,
+            'description' => 'required',
+            'modules' => 'required'
+        ]);
+
+        $updatedCourse = $request->all();
+        $course->reference = $updatedCourse['reference'];
+        $course->title = $updatedCourse['title'];
+        $course->description = $updatedCourse['description'];
+
+        $modules = $updatedCourse['modules'];
+        
+
+        foreach($modules as $module)        {
+             
+            if(isset($module['id']))
+            {
+                $moduleId = $module['id'];
+                $moduleToUpdate = Module::find($moduleId);
+                $moduleToUpdate->title = $module['title'];
+                $moduleToUpdate->description = $module['description'];
+                $moduleToUpdate->save();
+            }
+            else
+            {
+                $newModule = new Module;
+                $newModule->course_id = $id;
+                $newModule->title = $module['title'];
+                $newModule->description = $module['description'];
+                $newModule->created_by = Auth::user()->id;
+                $newModule = $newModule->save();
+            }
+
+            $contents = $module['contents'];
+            foreach($contents as $content)
+            {
+                if(isset($content['id']))
+                {
+                    $contentId = $content['id'];
+                    $contentToUpdate = Content::find($contentId);
+                    $contentToUpdate->title = $content['title'];
+                    $contentToUpdate->content = $content['content'];
+                    $contentToUpdate->save();
+                }
+                else
+                {
+                    $newContent = new Content;
+                    $newContent->module_id = $moduleId;
+                    $newContent->title = $content['title'];
+                    $newContent->content = $content['content'];
+                    $newContent->created_by = Auth::user()->id;
+                    $newContent = $newContent->save();
+                }
+            }
+        }
+
+        $course->save();
+        return redirect(route('cursos.manage'));
+    }
+
+    public function remove($id){
+        $course = Course::find($id);
+        $this->authorize('update', [User::class, $course]);
+        return view('course.remove', compact('course'));
     }
 
     /**
@@ -131,7 +220,18 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        $course = Course::find($id);
-        $this->authorize('update', User::class, $course);
+        $course = Course::find($id);  
+        $this->authorize('update', [User::class, $course]);  
+        foreach($course->modules as $module)
+        {
+            foreach($module->contents as $content)
+            {
+                $content->delete();
+            }
+            $module->delete();
+        }    
+        $course->delete();
+
+        return redirect(route('cursos.manage'));
     }
 }
