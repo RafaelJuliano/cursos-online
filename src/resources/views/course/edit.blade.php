@@ -27,11 +27,11 @@
         <div class="row">            
             <div class="form-group col-10">
                 <label for="title">Título do Curso</label>
-                <input type="text" class="form-control" id="title" name="title" value="{{ $course->title }}" required>                
+                <input type="text" class="form-control" id="title" name="title" value="{{ $course->title }}" required maxlength="120">                
             </div>
             <div class="form-group col-2">
                 <label for="reference">Referência</label>
-                <input type="text" class="form-control" id="reference" name="reference" value="{{ $course->reference }}" required>
+                <input type="text" class="form-control" id="reference" name="reference" value="{{ $course->reference }}" required maxlength="8">
             </div>
         </div>
         <div class="form-group">
@@ -59,7 +59,7 @@
                         <div class="form-group">
                             <label for="modules[{{ $key }}][title]">Título do Módulo</label>
                             <input type="hidden" name="modules[{{ $key }}][id]" value="{{ $module->id }}">
-                            <input type="text" class="form-control" id="modules[{{ $key }}][title]" name="modules[{{ $key }}][title]" value="{{ $module->title }}" onblur="changeModuleTitle({{ $key }})" required>                
+                            <input type="text" class="form-control" id="modules[{{ $key }}][title]" name="modules[{{ $key }}][title]" value="{{ $module->title }}" onblur="changeModuleTitle({{ $key }})" required maxlength="12">                
                         </div>
                         <div class="form-group">
                             <label for="modules[{{ $key }}][description]">Descrição</label>
@@ -84,7 +84,7 @@
                                     <div class="form-group">
                                         
                                         <label for="modules[{{ $key }}][contents][{{ $ckey }}][title]">Título</label>
-                                        <input type="text" class="form-control" id="modules[{{ $key }}][contents][{{ $ckey }}][title]" name="modules[{{ $key }}][contents][{{ $ckey }}][title]" onblur="changeContentTitle({{ $key }}, {{ $ckey }})" value="{{ $content->title }}" required>                
+                                        <input type="text" class="form-control" id="modules[{{ $key }}][contents][{{ $ckey }}][title]" name="modules[{{ $key }}][contents][{{ $ckey }}][title]" onblur="changeContentTitle({{ $key }}, {{ $ckey }})" value="{{ $content->title }}" required maxlength="120">                
                                     </div>
                                     <div class="form-group">
                                         <label for="modules[{{ $key }}][contents][{{ $ckey }}][content]">Conteúdo</label>

@@ -61,10 +61,13 @@ class CourseController extends Controller
     {
         $this->authorize('create', User::class);
         $request->validate([
-            'title' => 'required',
-            'reference' => 'required|unique:courses',
+            'title' => 'required|max:120',
+            'reference' => 'required|unique:courses|max:8',
             'description' => 'required',
-            'modules' => 'required'
+            'modules' => 'required',
+            'modules[*]title' => 'required|max:120',            
+            'modules[*]contents' => 'required',
+            'modules[*]contents[*]title' => 'required|max:120'
         ]);        
 
         $course = $request->all();
@@ -145,10 +148,13 @@ class CourseController extends Controller
         $this->authorize('update', [User::class, $course]);
 
         $request->validate([
-            'title' => 'required',
-            'reference' => 'required|unique:courses,reference,'.$id,
+            'title' => 'required|max:120',
+            'reference' => 'max:8|required|unique:courses,reference,'.$id,
             'description' => 'required',
-            'modules' => 'required'
+            'modules' => 'required',
+            'modules[*]title' => 'required|max:120',            
+            'modules[*]contents' => 'required',
+            'modules[*]contents[*]title' => 'required|max:120',
         ]);
 
         $updatedCourse = $request->all();

@@ -4,7 +4,7 @@
 <div class="container">
 
     <div class="d-flex justify-content-between">
-        <h2>Ambiente Virutal de Aprendisagem</h2> 
+        <h2>Ambiente Virutal de Aprendizagem</h2> 
     </div>
     <hr>
     <div class="d-flex justify-content-between">

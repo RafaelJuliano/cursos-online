@@ -27,11 +27,11 @@
         <div class="row">
             <div class="form-group col-10">
                 <label for="title">Título do Curso</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="HTML5 + CSS3" required>                
+                <input type="text" class="form-control" id="title" name="title" placeholder="HTML5 + CSS3" required maxlength="120" >                
             </div>
             <div class="form-group col-2">
                 <label for="reference">Referência</label>
-                <input type="text" class="form-control" id="reference" name="reference" placeholder="H5CS3" required>
+                <input type="text" class="form-control" id="reference" name="reference" placeholder="H5CS3" required maxlength="8">
             </div>
         </div>
         <div class="form-group">
@@ -53,7 +53,7 @@
                 <div class="collapse show" id="module_collapse_0">
                     <div class="form-group">
                         <label for="modules[0][title]">Título do Módulo</label>
-                        <input type="text" class="form-control" id="modules[0][title]" name="modules[0][title]" placeholder="Introdução" onblur="changeModuleTitle(0)" required>                
+                        <input type="text" class="form-control" id="modules[0][title]" name="modules[0][title]" placeholder="Introdução" onblur="changeModuleTitle(0)" required maxlength="120">                
                     </div>
                     <div class="form-group">
                         <label for="modules[0][description]">Descrição</label>
@@ -70,7 +70,7 @@
                             <div class="collapse show" id="content_collapse_0_0">
                                 <div class="form-group">
                                     <label for="modules[0][contents][0][title]">Título</label>
-                                    <input type="text" class="form-control" id="modules[0][contents][0][title]" name="modules[0][contents][0][title]" onblur="changeContentTitle(0, 0)" required>                
+                                    <input type="text" class="form-control" id="modules[0][contents][0][title]" name="modules[0][contents][0][title]" onblur="changeContentTitle(0, 0)" required maxlength="120">                
                                 </div>
                                 <div class="form-group">
                                     <label for="modules[0][contents][0][content]">Conteúdo</label>

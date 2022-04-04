@@ -18,8 +18,8 @@ class CreateModulesTable extends Migration
         Schema::create('modules', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('course_id')->unsigned(); 
-            $table->string('title');
-            $table->string('description');
+            $table->string('title', 120);
+            $table->text('description');
             $table->integer('created_by')->unsigned(); 
             $table->timestamps();
         });
