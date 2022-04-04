@@ -10,13 +10,13 @@ LEFT JOIN
         id,
         course_id,
         title
-    FROM course_modules) as b
+    FROM modules) as b
     ON (a.id = b.course_id)
 LEFT JOIN
     (SELECT
         module_id,
         count(*) as contents
-    FROM module_contents
+    FROM contents
     GROUP BY module_id) as c
     ON (b.id = c.module_id)
 GROUP BY a.id;

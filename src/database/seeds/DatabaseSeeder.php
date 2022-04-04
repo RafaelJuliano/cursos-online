@@ -392,7 +392,24 @@ class DatabaseSeeder extends Seeder
                     $newContent = $newContent->save();
                 }
             }
-        }                 
+        }  
+        
+        $views = [
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            [4, 6, 8, 9, 5, 3, 11, 12, 15],
+            [9, 15, 16, 17, 7, 12, 1, 3, 5],
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            [4, 6, 8, 9, 5, 3, 11, 12, 15]
+        ];
+
+        foreach($views as $key => $view)
+        {
+            $user = User::find($key+1);
+            $user->attendedClasses()->sync($view);
+        }
+
+
+        $this->command->info('seeded!');
             
     }
 }

@@ -45,13 +45,20 @@ Route::delete('content/{id}/delete', 'ContentController@destroy')->name('content
 
 Route::get('usuarios', 'UserController@index')->name('usuarios.index')->middleware('auth');
 Route::get('usuarios/detalhes/{id}', 'UserController@show')->name('usuarios.show')->middleware('auth');
-Route::put('usuarios/{id}/update', 'UserController@update')->name('usuarios.update')->middleware('auth');
+Route::put('usuarios/update/{id}', 'UserController@update')->name('usuarios.update')->middleware('auth');
 Route::post('usuarios/view/{id}', 'UserController@attendClass')->name('usuarios.view')->middleware('auth');
 
 Route::get('ava', 'avaController@index')->name('ava.index')->middleware('auth');
 Route::get('ava/modulos/{id}', 'avaController@showModules')->name('ava.modules')->middleware('auth');
 Route::get('ava/conteudos/{id}', 'avaController@showContents')->name('ava.contents')->middleware('auth');
 Route::get('ava/conteudo/{id}', 'avaController@showContent')->name('ava.content')->middleware('auth');
+
+Route::get('relatorios', 'ReportController@index')->name('relatorios.index')->middleware('auth');
+Route::get('relatorios/mais-ativos', 'ReportController@mostActiveTeachers')->name('relatorios.most_active_teachers')->middleware('auth');
+Route::get('relatorios/mais-completos', 'ReportController@moreCompleteCourses')->name('relatorios.more_complete_courses')->middleware('auth');
+Route::get('relatorios/total-conteudo', 'ReportController@totalContent')->name('relatorios.total_content')->middleware('auth');
+Route::get('relatorios/conteudo-total', 'ReportController@allContent')->name('relatorios.all_content')->middleware('auth');
+Route::get('relatorios/visualizacoes-conteudo/{id}', 'ReportController@contentViews')->name('relatorios.content_views')->middleware('auth');
 
 
 Route::post('post/teste', function(Request $request) {
