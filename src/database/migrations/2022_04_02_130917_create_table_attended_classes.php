@@ -15,13 +15,13 @@ class CreateTableAttendedClasses extends Migration
     {
         Schema::create('attended_classes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('created_by')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->integer('content_id')->unsigned();                               
             $table->timestamps();
         }); 
         
         Schema::table('attended_classes', function (Blueprint $table) {
-            $table->foreign('created_by')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('content_id')->references('id')->on('contents');
         });
     }

@@ -4,7 +4,8 @@
 <div class="container">
 
     <div class="d-flex justify-content-between">
-        <h2>{{ $course->title }}</h2>
+        <h2>{{ $course->title }}</h2>        
+
         <div class="d-flex flex-column align-items-end">
             <span class="text-muted">{{ $course->reference }}</span>
             <span class="text-muted">Criador por {{ $course->createdBy->name }}</span>
@@ -39,6 +40,11 @@
             </li>
         @endforeach
     </ul>
+    @if(!Auth::user()->subscriptions()->where('course_id', $course->id)->first())
+        <a href="{{ route('cursos.subscribe', $course->id) }}" class="btn btn-primary mt-3">Inscrever-se</a>
+    @else
+        <p class="text-muted mt-3">Matriculado em: {{ Auth::user()->subscriptions()->where('course_id', $course->id)->first()->created_at }}</p>
+    @endif
 
         
     

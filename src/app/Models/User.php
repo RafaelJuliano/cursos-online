@@ -36,14 +36,14 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Course\Course');
     }
 
-    public function Modules()
+    public function modules()
     {
         return $this->hasMany('App\Models\Course\Module');
     }
 
-    public function moduleContents()
+    public function contents()
     {
-        return $this->hasMany('App\Models\Course\ModuleContent');
+        return $this->hasMany('App\Models\Course\Content');
     }
 
     public function subscriptions()
@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function attendedClasses()
     {
-        return $this->belongsToMany('App\Models\Course\ModuleContent', 'attended_classes');
+        return $this->belongsToMany('App\Models\Course\Content', 'attended_classes');
     }
 
     public function isAdmin()

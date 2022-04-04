@@ -36,6 +36,9 @@ Route::post('cursos/store', 'CourseController@store')->name('cursos.store')->mid
 Route::post('cursos/{id}/update', 'CourseController@update')->name('cursos.update')->middleware('auth');
 Route::delete('cursos/delete/{id}', 'CourseController@destroy')->name('cursos.destroy')->middleware('auth');
 
+Route::get('cursos/inscricao/{id}', 'UserController@subscribe')->name('cursos.subscribe')->middleware('auth');
+Route::get('cursos/desinscricao/{id}', 'UserController@unsubscribe')->name('cursos.unsubscribe')->middleware('auth');
+
 
 Route::delete('module/{id}/delete', 'ModuleController@destroy')->name('module.destroy')->middleware('auth');
 Route::delete('content/{id}/delete', 'ContentController@destroy')->name('content.destroy')->middleware('auth');
@@ -43,6 +46,13 @@ Route::delete('content/{id}/delete', 'ContentController@destroy')->name('content
 Route::get('usuarios', 'UserController@index')->name('usuarios.index')->middleware('auth');
 Route::get('usuarios/detalhes/{id}', 'UserController@show')->name('usuarios.show')->middleware('auth');
 Route::put('usuarios/{id}/update', 'UserController@update')->name('usuarios.update')->middleware('auth');
+Route::post('usuarios/view/{id}', 'UserController@attendClass')->name('usuarios.view')->middleware('auth');
+
+Route::get('ava', 'avaController@index')->name('ava.index')->middleware('auth');
+Route::get('ava/modulos/{id}', 'avaController@showModules')->name('ava.modules')->middleware('auth');
+Route::get('ava/conteudos/{id}', 'avaController@showContents')->name('ava.contents')->middleware('auth');
+Route::get('ava/conteudo/{id}', 'avaController@showContent')->name('ava.content')->middleware('auth');
+
 
 Route::post('post/teste', function(Request $request) {
     $data = $request->all();

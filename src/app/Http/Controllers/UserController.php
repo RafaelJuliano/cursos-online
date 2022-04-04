@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;   
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -35,4 +36,32 @@ class UserController extends Controller
         $user->save();
         return redirect()->route('usuarios.index');
     }
+
+    public function subscribe(Request $request, $id)
+    {
+        $user = Auth::user();
+
+        $user->subscriptions()->attach($id);
+       
+        return redirect()->route('ava.index');
+    }
+
+    public function unsubscribe(Request $request, $id)
+    {
+        $user = Auth::user();
+
+        $user->subscriptions()->detach($id);
+       
+        return redirect()->route('ava.index');
+    }
+
+    public function attendClass(Request $request, $id)
+    {
+        $user = Auth::user();
+
+        $user->attendedClasses()->attach($id);
+       
+        return redirect()->route('ava.index');
+    }
+    
 }
